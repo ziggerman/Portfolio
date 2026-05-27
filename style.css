@@ -212,7 +212,7 @@ header {
   transition: var(--transition-normal);
 }
 header.scrolled {
-  background: rgba(3, 4, 8, 0.92);
+  background: rgba(3, 4, 8, 0.5);
   padding: 0.35rem 0;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
@@ -1967,7 +1967,9 @@ footer {
     -webkit-backdrop-filter: none !important;
   }
   header.scrolled {
-    background: var(--bg-darker) !important;
+    background: rgba(3, 4, 8, 0.5) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
     padding: 0 !important;
   }
   .nav-container {
