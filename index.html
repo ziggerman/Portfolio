@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Портфоліо розробника автоматизацій та ШІ-рішень. Професійне створення чат-ботів, парсерів, інтеграцій та автоматичного медіаконтенту.">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Stotskyi | Портфоліо AI & Автоматизації">
+  <meta property="og:description"
+    content="Розробка алгоритмічних торгових систем, інтелектуальних RAG-асистентів, парсерів та автоматичних генераторів контенту.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://stotskyi.dev">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stotskyi | Портфоліо AI & Автоматизації">
+  <meta name="twitter:description"
+    content="Розробка алгоритмічних торгових систем, інтелектуальних RAG-асистентів, парсерів та автоматичних генераторів контенту.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <title>Stotskyi | Портфоліо AI & Автоматизації</title>
+
+  <!-- Google Fonts preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="style.css?v=2.1">
+
+  <!-- Inline Script to set color scheme and prevent FOUC -->
+  <meta name="color-scheme" content="light dark">
+  <script>
+    {
+      const colorScheme = localStorage.getItem("color-scheme") || "dark";
+      document.documentElement.style.colorScheme = colorScheme;
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- SITE HEADER -->
+  <header id="site-header">
+    <div class="container nav-container">
+      <a href="#" class="logo" id="nav-logo">
+        <span>Stotskyi</span>
+      </a>
+
+      <nav aria-label="Головне меню">
+        <ul class="nav-links" id="nav-menu">
+          <li><a href="#services" class="nav-link">Послуги</a></li>
+          <li><a href="#projects" class="nav-link">Проєкти</a></li>
+          <li><a href="#calculator" class="nav-link">Розрахунок ROI</a></li>
+          <li><a href="#stack" class="nav-link">Стек</a></li>
+          <li><a href="#contact" class="nav-cta">Контакти</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-btn" id="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-menu"
+        aria-label="Відкрити меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>
+            Розумна автоматизація.<br>
+            AI агенти.<br>
+            <span class="gradient-text">Масштабування бізнесу.</span>
+          </h1>
+          <p>
+            Розробка алгоритмічних торгових систем, інтелектуальних RAG-асистентів, парсерів та автоматичних генераторів
+            контенту, які оптимізують рутину та заощаджують сотні годин.
+          </p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary" id="hero-btn-contact">
+              Обговорити проєкт
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#projects" class="btn btn-secondary" id="hero-btn-demo">
+              Дивитись проєкти
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-visual-bg"></div>
+          <div class="hero-nodes">
+            <svg width="100%" height="100%" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <style>
+                .pulse-circle {
+                  animation: pulse 4s infinite alternate;
+                }
+                .glow-path {
+                  stroke-dasharray: 8 8;
+                  animation: dash 25s linear infinite;
+                }
+                @keyframes pulse {
+                  0% { r: 6px; opacity: 0.4; }
+                  100% { r: 10px; opacity: 0.85; }
+                }
+                @keyframes dash {
+                  to { stroke-dashoffset: -1000; }
+                }
+              </style>
+              <path class="glow-path" d="M100 100 L200 200 L300 100" stroke="#00f2fe" stroke-width="1.5" stroke-opacity="0.3" />
+              <path class="glow-path" d="M200 200 L200 320 L100 250" stroke="#a855f7" stroke-width="1.5" stroke-opacity="0.3" />
+              <path class="glow-path" d="M200 200 L300 250 L200 320" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.3" />
+              <g transform="translate(100, 100)">
+                <circle r="20" fill="#090b11" stroke="#00f2fe" stroke-width="2" />
+                <circle class="pulse-circle" r="8" fill="#00f2fe" />
+                <path d="M-6-6 L6-6 L6 6 L-6 6 Z" stroke="#00f2fe" stroke-width="1" fill="none" opacity="0.5" />
+              </g>
+              <g transform="translate(300, 100)">
+                <circle r="20" fill="#090b11" stroke="#00f2fe" stroke-width="2" />
+                <circle class="pulse-circle" r="8" fill="#00f2fe" />
+                <path d="M-8 0 L4 -6 L2 6 Z" stroke="#00f2fe" stroke-width="1" fill="none" opacity="0.5" />
+              </g>
+              <g transform="translate(200, 200)">
+                <circle r="30" fill="#090b11" stroke="#a855f7" stroke-width="2" stroke-dasharray="4 4" />
+                <circle r="12" fill="#a855f7" fill-opacity="0.2" />
+                <circle r="6" fill="#a855f7" />
+              </g>
+              <g transform="translate(100, 250)">
+                <circle r="20" fill="#090b11" stroke="#10b981" stroke-width="2" />
+                <circle class="pulse-circle" r="8" fill="#10b981" />
+              </g>
+              <g transform="translate(300, 250)">
+                <circle r="20" fill="#090b11" stroke="#10b981" stroke-width="2" />
+                <circle class="pulse-circle" r="8" fill="#10b981" />
+              </g>
+              <g transform="translate(200, 320)">
+                <circle r="20" fill="#090b11" stroke="#3b82f6" stroke-width="2" />
+                <circle class="pulse-circle" r="8" fill="#3b82f6" />
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services">
+      <div class="container">
+        <div class="section-title">
+          <h2>Спектр технологічних послуг</h2>
+          <p>Створення надійних програмних архітектур, інтелектуальних алгоритмів та автономних ботів під ключ.</p>
+        </div>
+        <div class="services-grid">
+          <!-- Service 1 -->
+          <article class="glass-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17h16M4 12h16M4 7h16" /></svg>
+            </div>
+            <h3>Інтеграції та API</h3>
+            <p>Синхронізація платіжних систем, платіжних шлюзів (Stripe, LiqPay), популярних CRM (HubSpot, KeyCRM) та Low-Code сценаріїв на базі n8n.</p>
+            <ul class="service-features">
+              <li>REST / GraphQL / Webhooks</li>
+              <li>Синхронізація даних складів та угод</li>
+              <li>Двосторонній обмін без втрати даних</li>
+            </ul>
+          </article>
+          <!-- Service 2 -->
+          <article class="glass-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+            </div>
+            <h3>Розумні AI боти</h3>
+            <p>Чат-боти в Telegram та Discord з підтримкою AI моделй (Gemini, GPT) для відповідей за базою знань (RAG) та обробки голосу.</p>
+            <ul class="service-features">
+              <li>Навчання ШІ на ваших документах</li>
+              <li>Підтримка Whisper & TTS озвучки</li>
+              <li>Розпізнавання тексту (OCR) на фото</li>
+            </ul>
+          </article>
+          <!-- Service 3 -->
+          <article class="glass-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10zM2 12h20" /></svg>
+            </div>
+            <h3>Парсери & Лідогенерація</h3>
+            <p>Системи для парсингу соцмереж (Instagram, Threads), обходу блокувань Cloudflare, оцінки теплоти лідів та збору контактів.</p>
+            <ul class="service-features">
+              <li>Парсинг B2B профілів через Google</li>
+              <li>Автоматична перевірка контактів</li>
+              <li>Експорт звітів у CSV та PDF</li>
+            </ul>
+          </article>
+          <!-- Service 4 -->
+          <article class="glass-card">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></svg>
+            </div>
+            <h3>Авто-генерація медіа</h3>
+            <p>Створення графічних та відеоматеріалів на основі ШІ: автогенерація сценаріїв, синтез мовлення ElevenLabs та рендер відео MoviePy.</p>
+            <ul class="service-features">
+              <li>HTML-Каруселі з HSL-кольорами</li>
+              <li>Інтеграція Freepik/Pexels API</li>
+              <li>Автоматичний відеомонтаж (Shorts)</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO PROJECTS SECTION -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-title">
+          <h2>Портфоліо проєктів</h2>
+          <p>Детальний опис та технічний аналіз створених систем. Кожен проєкт містить інтерактивну демо-панель.</p>
+        </div>
+        <!-- Filters -->
+        <div class="portfolio-filters" role="group" aria-label="Фільтр проєктів">
+          <button class="filter-btn active" data-filter="all" aria-pressed="true">Всі проєкти</button>
+          <button class="filter-btn" data-filter="bots" aria-pressed="false">Чат-боти</button>
+          <button class="filter-btn" data-filter="scraping" aria-pressed="false">Парсери / Лідогенерація</button>
+          <button class="filter-btn" data-filter="automation" aria-pressed="false">Інтеграції / API</button>
+          <button class="filter-btn" data-filter="content" aria-pressed="false">Генерація контенту</button>
+        </div>
+        <!-- Projects Grid -->
+        <div class="portfolio-grid">
+
+          <!-- Project 1: CryptoAlerts Screener -->
+          <article class="glass-card project-card" data-category="bots automation">
+            <div class="project-card-header">
+              <span class="project-card-icon">📈</span>
+              <span class="case-tag">Скрипти + WebApp</span>
+            </div>
+            <h3 class="project-card-title">Crypto Alerts & Screener</h3>
+            <p class="project-card-desc">Професійний інструмент трейдингу. Відстежує Binance/Bybit в реальному часі через WebSockets, обчислює індикатори та відправляє сповіщення за допомогою ML-оцінки.</p>
+            <div class="project-card-meta">
+              <div class="meta-item"><span class="meta-label">Технології</span><span class="meta-value">Python, WebSockets</span></div>
+              <div class="meta-item"><span class="meta-label">База Даних</span><span class="meta-value">PostgreSQL, SQLite</span></div>
+            </div>
+            <button class="btn btn-primary btn-card-details" data-modal="modal-crypto">Детальніше & Тест</button>
+          </article>
+
+          <!-- Project 2: IntegFlow Custom Automations -->
+          <article class="glass-card project-card" data-category="automation">
+            <div class="project-card-header">
+              <span class="project-card-icon">🔌</span>
+              <span class="case-tag">n8n + Python API</span>
+            </div>
+            <h3 class="project-card-title">IntegFlow Автоматизації</h3>
+            <p class="project-card-desc">Кастомні API-інтеграції та n8n-сценарії. З'єднання CRM-систем з платіжними шлюзами, Google-таблицями та поштовими сервісами 24/7.</p>
+            <div class="project-card-meta">
+              <div class="meta-item"><span class="meta-label">Платформи</span><span class="meta-value">n8n, Python Scripts</span></div>
+              <div class="meta-item"><span class="meta-label">Інтеграції</span><span class="meta-value">Stripe, HubSpot, APIs</span></div>
+            </div>
+            <button class="btn btn-primary btn-card-details" data-modal="modal-integflow">Детальніше & Тест</button>
+          </article>
+
+          <!-- Project 3: Tetiana RAG AI Assist -->
+          <article class="glass-card project-card" data-category="bots">
+            <div class="project-card-header">
+              <span class="project-card-icon">🤖</span>
+              <span class="case-tag">Штучний Інтелект</span>
+            </div>
+            <h3 class="project-card-title">Tetiana AI — RAG Асистент</h3>
+            <p class="project-card-desc">Персональний AI-помічник. Зчитує PDF, DOCX, вхідні відео, транскрибує через Whisper та відповідає на запитання виключно за базою знань.</p>
+            <div class="project-card-meta">
+              <div class="meta-item"><span class="meta-label">AI Моделі</span><span class="meta-value">Gemini API, Whisper</span></div>
+              <div class="meta-item"><span class="meta-label">Векторний Пошук</span><span class="meta-value">Pinecone, FAISS</span></div>
+            </div>
+            <button class="btn btn-primary btn-card-details" data-modal="modal-tetiana">Детальніше & Тест</button>
+          </article>
+
+          <!-- Project 4: Threads Hunter LeadGen -->
+          <article class="glass-card project-card" data-category="scraping automation">
+            <div class="project-card-header">
+              <span class="project-card-icon">🔍</span>
+              <span class="case-tag">Парсинг & B2B</span>
+            </div>
+            <h3 class="project-card-title">Threads Hunter</h3>
+            <p class="project-card-desc">Парсер Meta Threads API. Шукає пости за ключовими словами (наприклад "Шукаю Таргетолога"), ШІ оцінює теплоту ліда, автоматично надсилає коментар під пост та сповіщення в Telegram.</p>
+            <div class="project-card-meta">
+              <div class="meta-item"><span class="meta-label">API</span><span class="meta-value">Meta Threads API</span></div>
+              <div class="meta-item"><span class="meta-label">Звіти</span><span class="meta-value">SQLite, PDF (ReportLab)</span></div>
+            </div>
+            <button class="btn btn-primary btn-card-details" data-modal="modal-threads">Детальніше & Тест</button>
+          </article>
+
+          <!-- Project 5: Carousel Generator Bot -->
+          <article class="glass-card project-card" data-category="bots content">
+            <div class="project-card-header">
+              <span class="project-card-icon">🎨</span>
+              <span class="case-tag">Медіа Рендер</span>
+            </div>
+            <h3 class="project-card-title">Carousel Post Generator</h3>
+            <p class="project-card-desc">Бот для швидкого створення Instagram-каруселей. AI пише контент за шаблонами, система вираховує колірну схему та рендерить 4:5 зображення у HD якості.</p>
+            <div class="project-card-meta">
+              <div class="meta-item"><span class="meta-label">Движок Рендеру</span><span class="meta-value">Playwright (HTML-Img)</span></div>
+              <div class="meta-item"><span class="meta-label">Колірна математика</span><span class="meta-value">HSL токени (6 кольорів)</span></div>
+            </div>
+            <button class="btn btn-primary btn-card-details" data-modal="modal-carousel">Детальніше & Тест</button>
+          </article>
+
+          <!-- Project 6: InstaLeadScout Finder -->
+          <article class="glass-card project-card" data-category="scraping">
+            <div class="project-card-header">
+              <span class="project-card-icon">🕵️</span>
+              <span class="case-tag">Аналіз профілів</span>
+            </div>
+            <h3 class="project-card-title">InstaLeadScout v2</h3>
+            <p class="project-card-desc">Instagram лідогенератор. Знаходить профілі через Google Search, перевіряє їхню активність (останній пост) та кваліфікує ліди на "Гарячі" / "Теплі" на основі наявності сайту та Telegram.</p>
+            <div class="project-card-meta">
+              <div class="meta-item"><span class="meta-label">Скрейпінг</span><span class="meta-value">Google, Playwright</span></div>
+              <div class="meta-item"><span class="meta-label">Фільтри</span><span class="meta-value">Followers & Inactivity</span></div>
+            </div>
+            <button class="btn btn-primary btn-card-details" data-modal="modal-instalead">Детальніше & Тест</button>
+          </article>
+
+          <!-- Project 7: AI Video Factory Compiler -->
+          <article class="glass-card project-card" data-category="bots content">
+            <div class="project-card-header">
+              <span class="project-card-icon">🎬</span>
+              <span class="case-tag">Відео Рендер</span>
+            </div>
+            <h3 class="project-card-title">AI Video Factory</h3>
+            <p class="project-card-desc">Автономна відео-фабрика. Пише сценарії, озвучує голосом ElevenLabs, знаходить придатні медіафайли через стокові API та монтує готове Shorts відео.</p>
+            <div class="project-card-meta">
+              <div class="meta-item"><span class="meta-label">Обробка Медіа</span><span class="meta-value">MoviePy, ElevenLabs</span></div>
+              <div class="meta-item"><span class="meta-label">Монтаж</span><span class="meta-value">Celery, Freepik/Pexels</span></div>
+            </div>
+            <button class="btn btn-primary btn-card-details" data-modal="modal-video">Детальніше & Тест</button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ROI CALCULATOR SECTION -->
+    <section id="calculator">
+      <div class="container calc-container">
+        <div class="calc-content">
+          <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem;">Розрахуйте окупність автоматизації</h2>
+          <p style="color: var(--text-muted); margin-bottom: 2.5rem;">Повторювані процеси уповільнюють ріст. Розрахуйте, скільки годин ваші працівники витрачають на рутину і скільки фінансів звільнить впровадження кастомних AI-рішень.</p>
+          <div class="calc-controls">
+            <div class="calc-field">
+              <h4>Оберіть напрямок оптимізації:</h4>
+              <div class="calc-options-grid" role="radiogroup" aria-label="Тип завдання">
+                <button class="calc-btn-option selected" data-factor="1.0" role="radio" aria-checked="true" type="button">Ручне введення даних / Звіти</button>
+                <button class="calc-btn-option" data-factor="1.25" role="radio" aria-checked="false" type="button">Обробка клієнтів / Підтримка</button>
+                <button class="calc-btn-option" data-factor="0.85" role="radio" aria-checked="false" type="button">Збір та аналіз даних</button>
+                <button class="calc-btn-option" data-factor="0.9" role="radio" aria-checked="false" type="button">Створення контенту</button>
+              </div>
+            </div>
+            <div class="calc-field">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h4>Час на ручну рутину (на тиждень):</h4>
+                <span style="font-weight: 700; color: var(--cyan);" id="slider-hours-val">15 годин</span>
+              </div>
+              <div class="calc-slider-wrapper">
+                <input type="range" class="calc-slider" id="slider-hours" min="1" max="40" value="15" aria-label="Години ручної роботи на тиждень">
+                <div class="calc-slider-labels">
+                  <span>1 год</span><span>10 год</span><span>20- год</span><span>30 год</span><span>40 год</span>
+                </div>
+              </div>
+            </div>
+            <div class="calc-field">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                <h4>Вартість години працівника:</h4>
+                <span style="font-weight: 700; color: var(--cyan);" id="slider-rate-val">400 ₴ / год</span>
+              </div>
+              <div class="calc-slider-wrapper">
+                <input type="range" class="calc-slider" id="slider-rate" min="150" max="2500" step="50" value="400" aria-label="Вартість години працівника">
+                <div class="calc-slider-labels">
+                  <span>150 ₴</span><span>750 ₴</span><span>1500 ₴</span><span>2000 ₴</span><span>2500 ₴</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="calc-results">
+          <div class="calc-results-glow"></div>
+          <div class="calc-res-title">Потенціал оптимізації</div>
+          <div class="calc-metric">
+            <div class="calc-value" id="calc-val-money">0 ₴</div>
+            <p>Заощаджено на місяць</p>
+          </div>
+          <div class="calc-metric">
+            <div class="calc-value" style="color: var(--emerald);" id="calc-val-hours">0 год</div>
+            <p>Звільненого часу на місяць</p>
+          </div>
+          <div class="calc-bottom-info">
+            <div>
+              <div class="calc-submetric-val" id="calc-val-yearly">0 ₴</div>
+              <div class="calc-submetric-lbl">Річна оптимізація</div>
+            </div>
+            <div>
+              <div class="calc-submetric-val" style="color: var(--purple);" id="calc-val-payback">2-3 міс</div>
+              <div class="calc-submetric-lbl">Окупність розробки</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECH STACK SECTION -->
+    <section id="stack">
+      <div class="container">
+        <div class="section-title">
+          <h2>Технологічний стек розробки</h2>
+          <p>Натисніть на категорію, щоб розгорнути список технологій. Натисніть на технологію, щоб дізнатись більше про її використання в проєктах.</p>
+        </div>
+        
+        <div class="tech-container">
+          <div class="tech-category-wrapper" data-category="languages">
+            <h3 class="tech-category-title"><span></span>Мови програмування & AI</h3>
+            <div class="tech-grid">
+              <div class="tech-card" data-tech="python" data-category="languages"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg><span>Python</span></div>
+              <div class="tech-card" data-tech="nodejs" data-category="languages"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg><span>Node.js / TS</span></div>
+              <div class="tech-card" data-tech="gemini" data-category="languages"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10" /><path d="M8 12h8M12 8v8" /></svg><span>Gemini API</span></div>
+              <div class="tech-card" data-tech="openai" data-category="languages"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10" /><path d="M12 8v8M8 12h8" /></svg><span>OpenAI / GPT</span></div>
+              <div class="tech-card" data-tech="whisper" data-category="languages"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v1M18 8h4v8h-4M22 12h-4" /></svg><span>Whisper</span></div>
+              <div class="tech-card" data-tech="elevenlabs" data-category="languages"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><line x1="12" y1="19" x2="12" y2="23" /><line x1="8" y1="23" x2="16" y2="23" /></svg><span>ElevenLabs</span></div>
+              <div class="tech-card" data-tech="opencv" data-category="languages"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3L6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></svg><span>OpenCV (OCR)</span></div>
+            </div>
+          </div>
+          <div class="tech-category-wrapper" data-category="bots">
+            <h3 class="tech-category-title"><span></span>Боти, API & Інтеграції</h3>
+            <div class="tech-grid">
+              <div class="tech-card" data-tech="aiogram" data-category="bots"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10" /><path d="M8 14s1.5 2 4 2 4-2 4-2" /><line x1="9" y1="9" x2="9.01" y2="9" /><line x1="15" y1="9" x2="15.01" y2="9" /></svg><span>AIogram / Telebot</span></div>
+              <div class="tech-card" data-tech="n8n" data-category="bots"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="5" r="3" /><circle cx="12" cy="19" r="3" /><circle cx="5" cy="12" r="3" /><circle cx="19" cy="12" r="3" /><path d="M5 12h14M12 5v14" /></svg><span>n8n Workflows</span></div>
+              <div class="tech-card" data-tech="websockets" data-category="bots"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 0 1 9-9" /></svg><span>WebSockets</span></div>
+              <div class="tech-card" data-tech="stripe" data-category="bots"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg><span>Stripe API</span></div>
+              <div class="tech-card" data-tech="hubspot" data-category="bots"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /></svg><span>HubSpot API</span></div>
+              <div class="tech-card" data-tech="threads" data-category="bots"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg><span>Threads API</span></div>
+              <div class="tech-card" data-tech="google" data-category="bots"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><line x1="3" y1="9" x2="21" y2="9" /><line x1="9" y1="21" x2="9" y2="9" /></svg><span>Google Search</span></div>
+              <div class="tech-card" data-tech="youtube" data-category="bots"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" /><rect x="2" y="3" width="20" height="18" rx="2" ry="2" /></svg><span>YouTube API</span></div>
+              <div class="tech-card" data-tech="drive" data-category="bots"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2" /><line x1="12" y1="22" x2="12" y2="15.5" /><polyline points="22 8.5 12 15.5 2 8.5" /></svg><span>Google Drive</span></div>
+              <div class="tech-card" data-tech="docs" data-category="bots"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg><span>Google Docs</span></div>
+              <div class="tech-card" data-tech="airtable" data-category="bots"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" /><line x1="3" y1="9" x2="21" y2="9" /><line x1="9" y1="3" x2="9" y2="21" /></svg><span>Airtable</span></div>
+              <div class="tech-card" data-tech="supabase" data-category="bots"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 15c2 0 4-2 6-2s4 2 6 2 4-2 6-2" /><path d="M4 19c2 0 4-2 6-2s4 2 6 2 4-2 6-2" /><path d="M4 11c2 0 4-2 6-2s4 2 6 2 4-2 6-2" /><path d="M4 7c2 0 4-2 6-2s4 2 6 2 4-2 6-2" /></svg><span>Supabase</span></div>
+            </div>
+          </div>
+          <div class="tech-category-wrapper" data-category="infra">
+            <h3 class="tech-category-title"><span></span>Інфраструктура, Бази & Медіа</h3>
+            <div class="tech-grid">
+              <div class="tech-card" data-tech="postgresql" data-category="infra"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" /><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3" /></svg><span>PostgreSQL</span></div>
+              <div class="tech-card" data-tech="sqlite" data-category="infra"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" /><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3" /></svg><span>SQLite</span></div>
+              <div class="tech-card" data-tech="pinecone" data-category="infra"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg><span>Pinecone / FAISS</span></div>
+              <div class="tech-card" data-tech="docker" data-category="infra"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><box x="3" y="3" width="18" height="18" rx="2" /><path d="M7 3v18" /></svg><span>Docker</span></div>
+              <div class="tech-card" data-tech="playwright" data-category="infra"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" /><path d="M12 6v12M6 12h12" /></svg><span>Playwright</span></div>
+              <div class="tech-card" data-tech="moviepy" data-category="infra"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7" /><rect x="1" y="5" width="15" height="14" rx="2" ry="2" /></svg><span>MoviePy</span></div>
+              <div class="tech-card" data-tech="celery" data-category="infra"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg><span>Celery</span></div>
+              <div class="tech-card" data-tech="reportlab" data-category="infra"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg><span>ReportLab</span></div>
+              <div class="tech-card" data-tech="rembg" data-category="infra"><svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10" /><path d="M8 14s1.5 2 4 2 4-2 4-2" /><line x1="9" y1="9" x2="9.01" y2="9" /><line x1="15" y1="9" x2="15.01" y2="9" /></svg><span>rembg</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+      <div class="container contact-layout">
+        <div class="contact-info">
+          <h3>Маєте завдання для автоматизації?</h3>
+          <p>Опишіть ваші щоденні рутинні процеси, і я запропоную оптимальну архітектуру бота чи інтеграційного скрипта для звільнення вашого часу.</p>
+          <div class="contact-methods">
+            <a href="https://t.me/stotskyii" class="contact-item" target="_blank" rel="noopener noreferrer">
+              <div class="contact-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" /></svg>
+              </div>
+              <div><strong style="display: block; color: var(--text-main);">Telegram</strong><span>@stotskyii</span></div>
+            </a>
+            <a href="mailto:reloaded.st@gmail.com" class="contact-item">
+              <div class="contact-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
+              </div>
+              <div><strong style="display: block; color: var(--text-main);">Email</strong><span>reloaded.st@gmail.com</span></div>
+            </a>
+            <a href="tel:+380685748278" class="contact-item">
+              <div class="contact-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+              </div>
+              <div><strong style="display: block; color: var(--text-main);">Телефон</strong><span>+380 68 574 82 78</span></div>
+            </a>
+          </div>
+        </div>
+        <div class="glass-card">
+          <form class="contact-form" id="project-contact-form">
+            <div class="form-row">
+              <div class="form-group"><label for="form-name">Ваше ім'я</label><input type="text" class="form-input" id="form-name" placeholder="Олексій" required></div>
+              <div class="form-group"><label for="form-contact">Зв'язок (Telegram / Email)</label><input type="text" class="form-input" id="form-contact" placeholder="@username або email" required></div>
+            </div>
+            <div class="form-group">
+              <label for="form-service">Тип завдання</label>
+              <select class="form-input form-input-select" id="form-service" style="cursor: pointer;">
+                <option value="data">Автоматизація введення / обробки даних</option>
+                <option value="support">Чат-бот для клієнтів / підтримки</option>
+                <option value="scraping">Парсинг / Моніторинг сайтів</option>
+                <option value="content">Генерація тексту / медіаконтенту</option>
+                <option value="integration">Інтеграція між сервісами</option>
+                <option value="other">Інше (опишу в деталях)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="form-message">Опис вашого процесу чи ідеї</label>
+              <textarea class="form-textarea" id="form-message" placeholder="Опишіть завдання, які потрібно автоматизувати..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="btn-submit-form" style="width: 100%;">Надіслати запит</button>
+            <div id="form-status" style="margin-top: 1rem; text-align: center; font-size: 0.95rem; font-weight: 500; min-height: 24px;" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-container">
+      <div class="logo" style="font-size: 1.25rem;">
+        <span>Stotskyi AI Integrator</span>
+      </div>
+      <div class="footer-text">&copy; 2026 Stotskyi. Усі права захищено. Створено для оптимізації процесів.</div>
+    </div>
+  </footer>
+
+  <!-- MODALS -->
+  <!-- 1. Crypto Screener Modal -->
+  <div class="modal-overlay" id="modal-crypto">
+    <div class="modal-body" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" aria-label="Закрити">×</button>
+      <div class="modal-content-scroller">
+        <div class="modal-grid">
+          <div>
+            <div class="modal-title-wrapper"><span class="modal-category">Скрипти + WebApp</span><h2 class="modal-title">Crypto Alerts & Screener</h2></div>
+            <div class="modal-desc">Професійний інструмент трейдингу. Дозволяє автоматизувати пошук аномалій на ф'ючерсних ринках Binance/Bybit. Працює в реальному часі через високошвидкісні WebSocket з'єднання, виявляючи сплески об'ємів та RSI розходження.</div>
+            <div class="modal-section-title">Основний функціонал</div>
+            <ul class="modal-features-list">
+              <li><b>Smart Screener:</b> Постійний моніторинг об'ємів торгів та цінових імпульсів.</li>
+              <li><b>Indicator Engine:</b> RSI, MACD, EMA розрахунки на 1m, 5m, 15m, 1h таймфреймах.</li>
+              <li><b>ML Confidence Scorer (v4):</b> XGBoost оцінка ймовірності відпрацювання сигналу.</li>
+              <li><b>Risk Manager:</b> Автоматичний розрахунок TakeProfit, StopLoss та об'єму позиції за ATR.</li>
+              <li><b>Settings WebApp:</b> Зручне налаштування алертів через інтегрований WebApp.</li>
+            </ul>
+            <div class="modal-section-title">Стек технологій</div>
+            <div class="modal-tech-tags">
+              <span class="modal-tech-tag">Python</span><span class="modal-tech-tag">WebSockets</span><span class="modal-tech-tag">Binance API</span><span class="modal-tech-tag">SQLite / PG</span><span class="modal-tech-tag">n8n Workflows</span><span class="modal-tech-tag">Tailwind HTML</span>
+            </div>
+          </div>
+          <div class="bot-mockup-wrapper">
+            <div class="bot-mockup-label"><span></span>CryptoAlerts Bot</div>
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="phone-status-bar"><span class="status-time">09:41</span><div class="status-icons"><span>📶</span><span>5G</span><span>🔋</span></div></div>
+                <div class="tg-header">
+                  <button class="tg-back" type="button">←</button>
+                  <div class="tg-chat-info">
+                    <div class="tg-avatar" style="background: var(--grad-cyan-blue)">📈</div>
+                    <div><div class="tg-name">Crypto Screener</div><div class="tg-status">бот (в мережі)</div></div>
+                  </div>
+                </div>
+                <div class="tg-messages" id="tg-messages-crypto">
+                  <div class="tg-message bot">Привіт! Я твій кастомний Crypto Screener Bot. Оберіть дію на клавіатурі нижче, щоб перевірити роботу.</div>
+                </div>
+                <div class="tg-input-bar">
+                  <span style="font-size:0.75rem; opacity:0.6;">📎</span>
+                  <input class="tg-input-field" id="tg-input-crypto" data-bot="crypto" placeholder="Напишіть повідомлення..." style="flex:1;color:#e2e8f0;background:#18191e;padding:0.3rem 0.6rem;border-radius:14px;font-size:0.7rem;outline:none;border:1px solid rgba(255,255,255,0.04);font-family:var(--font-sans);">
+                  <button class="tg-send-btn" data-bot="crypto" aria-label="Надіслати" style="background:none;border:none;color:var(--cyan);cursor:pointer;font-size:0.85rem;padding:0 4px;">➔</button>
+                  <button class="tg-clear-btn" data-bot="crypto" aria-label="Очистити чат" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.7rem;padding:0 4px;">🗑️</button>
+                </div>
+                <div class="tg-keyboard-container">
+                  <div class="tg-keyboard-row">
+                    <button class="tg-kbd-btn" data-bot="crypto" data-text="📊 Огляд ринку">📊 Огляд ринку</button>
+                    <button class="tg-kbd-btn" data-bot="crypto" data-text="🔔 мої Сповіщення">🔔 Сповіщення</button>
+                  </div>
+                  <div class="tg-keyboard-row">
+                    <button class="tg-kbd-btn" data-bot="crypto" data-text="⚙️ Налаштування">⚙️ Налаштування</button>
+                    <button class="tg-kbd-btn" data-bot="crypto" data-text="❓ Довідка">❓ Довідка</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. IntegFlow Modal -->
+  <div class="modal-overlay" id="modal-integflow">
+    <div class="modal-body" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" aria-label="Закрити">×</button>
+      <div class="modal-content-scroller">
+        <div style="max-width: 750px; margin: 0 auto;">
+          <div class="modal-title-wrapper" style="text-align: center;"><span class="modal-category">n8n + Python API</span><h2 class="modal-title">IntegFlow Автоматизації</h2></div>
+          <div class="modal-desc" style="text-align: center; margin-bottom: 3rem;">З'єднання розрізнених хмарних систем в єдиний злагоджений механізм. n8n workflow-сценарії та кастомні Python-скрипти обробляють тисячі запитів на день, автоматизуючи синхронізацію складів, виставлення рахунків Stripe та кваліфікацію лідів у CRM.</div>
+          <div class="modal-section-title">Приклади інтеграцій</div>
+          <ul class="modal-features-list" style="margin-bottom: 3rem;">
+            <li><b>Синхронізація угод:</b> Отримання оплат Stripe та автостворення карток у HubSpot CRM.</li>
+            <li><b>Логістичні ТТН:</b> Створення посилок у кабінеті Нової Пошти після оплат у чат-боті.</li>
+            <li><b>Звіти у реальному часі:</b> Автоматичний запис даних про замовлення Shopify у Google Таблиці з перевіркою дублікатів.</li>
+          </ul>
+          <div class="modal-section-title">Технологічний стек</div>
+          <div class="modal-tech-tags" style="justify-content: center; margin-bottom: 3rem;">
+            <span class="modal-tech-tag">n8n Workflows</span><span class="modal-tech-tag">Python Scripts</span><span class="modal-tech-tag">Stripe API</span><span class="modal-tech-tag">HubSpot API</span><span class="modal-tech-tag">JavaScript Node</span><span class="modal-tech-tag">PostgreSQL</span>
+          </div>
+          <div style="text-align: center;"><a href="#contact" class="btn btn-primary modal-action-btn">Обговорити автоматизацію</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Tetiana AI Modal -->
+  <div class="modal-overlay" id="modal-tetiana">
+    <div class="modal-body" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" aria-label="Закрити">×</button>
+      <div class="modal-content-scroller">
+        <div class="modal-grid">
+          <div>
+            <div class="modal-title-wrapper"><span class="modal-category">Штучний Інтелект</span><h2 class="modal-title">Tetiana AI — Knowledge Bot</h2></div>
+            <div class="modal-desc">Ваш персональний ШІ-асистент у Telegram. Навчений на ваших власних матеріалах (документах PDF, DOCX, PPTX та YouTube-відео). Відповідає на будь-які запитання за допомогою векторного пошуку context-RAG.</div>
+            <div class="modal-section-title">Основний функціонал</div>
+            <ul class="modal-features-list">
+              <li><b>OCR Text Extraction:</b> Розпізнавання та оцифрування тексту на фото та сканованих PDF.</li>
+              <li><b>YouTube Transcribe:</b> Завантаження звуку з відео за лінком та транскрипція Whisper.</li>
+              <li><b>Dynamic Memory:</b> Бази даних Pinecone та FAISS для миттєвого знаходження релевантних абзаців.</li>
+              <li><b>Local API server:</b> Зняття обмеження в 20 МБ на Telegram-файли (підтримка файлів до 2 ГБ).</li>
+              <li><b>TTS Озвучення:</b> Натисканням однієї кнопки бот може зачитати свою текстову відповідь.</li>
+            </ul>
+            <div class="modal-section-title">Стек технологій</div>
+            <div class="modal-tech-tags">
+              <span class="modal-tech-tag">Python (AIogram)</span><span class="modal-tech-tag">Gemini API</span><span class="modal-tech-tag">Whisper Speech</span><span class="modal-tech-tag">Pinecone Vector</span><span class="modal-tech-tag">OpenCV (OCR)</span><span class="modal-tech-tag">Docker / PyPDF</span>
+            </div>
+          </div>
+          <div class="bot-mockup-wrapper">
+            <div class="bot-mockup-label"><span></span>Tetiana AI Bot</div>
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="phone-status-bar"><span class="status-time">09:41</span><div class="status-icons"><span>📶</span><span>5G</span><span>🔋</span></div></div>
+                <div class="tg-header">
+                  <button class="tg-back" type="button">←</button>
+                  <div class="tg-chat-info">
+                    <div class="tg-avatar" style="background: var(--grad-purple-blue)">👩‍🏫</div>
+                    <div><div class="tg-name">Tetiana AI</div><div class="tg-status">бот (в мережі)</div></div>
+                  </div>
+                </div>
+                <div class="tg-messages" id="tg-messages-tetiana">
+                  <div class="tg-message bot">Привіт! Я ШІ-асистент Tetiana AI. Оберіть режим бази знань або натисніть "📚 Додати знання".</div>
+                </div>
+                <div class="tg-input-bar">
+                  <span style="font-size:0.75rem; opacity:0.6;">📎</span>
+                  <input class="tg-input-field" id="tg-input-tetiana" data-bot="tetiana" placeholder="Напишіть повідомлення..." style="flex:1;color:#e2e8f0;background:#18191e;padding:0.3rem 0.6rem;border-radius:14px;font-size:0.7rem;outline:none;border:1px solid rgba(255,255,255,0.04);font-family:var(--font-sans);">
+                  <button class="tg-send-btn" data-bot="tetiana" aria-label="Надіслати" style="background:none;border:none;color:var(--cyan);cursor:pointer;font-size:0.85rem;padding:0 4px;">➔</button>
+                  <button class="tg-clear-btn" data-bot="tetiana" aria-label="Очистити чат" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.7rem;padding:0 4px;">🗑️</button>
+                </div>
+                <div class="tg-keyboard-container">
+                  <div class="tg-keyboard-row">
+                    <button class="tg-kbd-btn" data-bot="tetiana" data-text="🎓 Змінити режим">🎓 Змінити режим</button>
+                    <button class="tg-kbd-btn" data-bot="tetiana" data-text="📊 Статус бази">📊 Статус бази</button>
+                  </div>
+                  <div class="tg-keyboard-row">
+                    <button class="tg-kbd-btn" data-bot="tetiana" data-text="📚 Додати знання">📚 Додати знання</button>
+                    <button class="tg-kbd-btn" data-bot="tetiana" data-text="💡 Інструкція">💡 Інструкція</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Threads Hunter Modal -->
+  <div class="modal-overlay" id="modal-threads">
+    <div class="modal-body" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" aria-label="Закрити">×</button>
+      <div class="modal-content-scroller">
+        <div class="modal-grid">
+          <div>
+            <div class="modal-title-wrapper"><span class="modal-category">Парсинг & B2B</span><h2 class="modal-title">Threads Hunter</h2></div>
+            <div class="modal-desc">Автоматичний парсер Meta Threads API. Здійснює пошук постів за ключовими словами (наприклад "Шукаю Таргетолога"), ШІ оцінює теплоту ліда. Якщо лід теплий або гарячий — бот автоматично надсилає коментар під пост та відправляє сповіщення в Telegram.</div>
+            <div class="modal-section-title">Основний функціонал</div>
+            <ul class="modal-features-list">
+              <li><b>Keyword Search:</b> Пошук постів за цільовими фразами (наприклад "Шукаю Таргетолога", "Потрібен дизайнер").</li>
+              <li><b>AI Warmth Scoring:</b> ШІ аналізує профіль та пост, оцінює ліда як холодний/теплий/гарячий.</li>
+              <li><b>Auto-Comment:</b> Якщо лід теплий або гарячий — бот автоматично пише коментар під пост.</li>
+              <li><b>Telegram Alert:</b> Миттєве сповіщення в Telegram про знайденого теплого/гарячого ліда.</li>
+              <li><b>PDF Exporter:</b> Компіляція та вивантаження звітів про знайдених лідів у PDF форматі.</li>
+            </ul>
+            <div class="modal-section-title">Стек технологій</div>
+            <div class="modal-tech-tags">
+              <span class="modal-tech-tag">Python (AIogram)</span><span class="modal-tech-tag">Threads API</span><span class="modal-tech-tag">Playwright</span><span class="modal-tech-tag">ReportLab PDF</span><span class="modal-tech-tag">SQLite</span><span class="modal-tech-tag">aiohttp</span>
+            </div>
+          </div>
+          <div class="bot-mockup-wrapper">
+            <div class="bot-mockup-label"><span></span>Threads Hunter Bot</div>
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="phone-status-bar"><span class="status-time">09:41</span><div class="status-icons"><span>📶</span><span>5G</span><span>🔋</span></div></div>
+                <div class="tg-header">
+                  <button class="tg-back" type="button">←</button>
+                  <div class="tg-chat-info">
+                    <div class="tg-avatar" style="background: var(--grad-purple-pink)">🔍</div>
+                    <div><div class="tg-name">Threads Hunter</div><div class="tg-status">бот (в мережі)</div></div>
+                  </div>
+                </div>
+                <div class="tg-messages" id="tg-messages-threads">
+                  <div class="tg-message bot">Вітаю у Threads Hunter! Я знаходжу B2B лідів в Threads. Оберіть дію:</div>
+                </div>
+                <div class="tg-input-bar">
+                  <span style="font-size:0.75rem; opacity:0.6;">📎</span>
+                  <input class="tg-input-field" id="tg-input-threads" data-bot="threads" placeholder="Напишіть повідомлення..." style="flex:1;color:#e2e8f0;background:#18191e;padding:0.3rem 0.6rem;border-radius:14px;font-size:0.7rem;outline:none;border:1px solid rgba(255,255,255,0.04);font-family:var(--font-sans);">
+                  <button class="tg-send-btn" data-bot="threads" aria-label="Надіслати" style="background:none;border:none;color:var(--cyan);cursor:pointer;font-size:0.85rem;padding:0 4px;">➔</button>
+                  <button class="tg-clear-btn" data-bot="threads" aria-label="Очистити чат" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.7rem;padding:0 4px;">🗑️</button>
+                </div>
+                <div class="tg-keyboard-container">
+                  <div class="tg-keyboard-row">
+                    <button class="tg-kbd-btn" data-bot="threads" data-text="🔍 Пошук лідів">🔍 Шукаю Таргетолога</button>
+                    <button class="tg-kbd-btn" data-bot="threads" data-text="📊 Моя статистика">📊 Статистика</button>
+                  </div>
+                  <div class="tg-keyboard-row">
+                    <button class="tg-kbd-btn" data-bot="threads" data-text="🎛️ Налаштування">🎛️ Налаштування</button>
+                    <button class="tg-kbd-btn" data-bot="threads" data-text="👤 Мій профіль">👤 Профіль</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Carousel Bot Modal -->
+  <div class="modal-overlay" id="modal-carousel">
+    <div class="modal-body" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" aria-label="Закрити">×</button>
+      <div class="modal-content-scroller">
+        <div class="modal-grid">
+          <div>
+            <div class="modal-title-wrapper"><span class="modal-category">Медіа Рендер</span><h2 class="modal-title">Carousel Post Generator</h2></div>
+            <div class="modal-desc">Автоматичний генератор каруселей для Instagram. Користувач задає тему, ШІ пише текст слайдів за копірайтерськими правилами, бот вираховує унікальний HSL колірний код під бренд і рендерить зображення у форматі 4:5.</div>
+            <div class="modal-section-title">Основний функціонал</div>
+            <ul class="modal-features-list">
+              <li><b>HSL Color System:</b> Створення 6 гармонійних колірних токенів на основі одного HEX коду бренду.</li>
+              <li><b>AI Copywriter:</b> Генерація сильного тексту за пресетами (modern, editorial, rounded).</li>
+              <li><b>Format presets:</b> Standard (7 слайдів), Listicle (6 слайдів), Tutorial (7 слайдів), Compare (5 слайдів).</li>
+              <li><b>HD Renderer:</b> Рендер готового HTML-коду за допомогою Playwright у PNG знімки.</li>
+              <li><b>Text legibility filters:</b> Затемнення та розмиття фонового зображення для читабельності тексту.</li>
+            </ul>
+            <div class="modal-section-title">Стек технологій</div>
+            <div class="modal-tech-tags">
+              <span class="modal-tech-tag">Python (AIogram)</span><span class="modal-tech-tag">OpenAI API</span><span class="modal-tech-tag">Playwright Sync</span><span class="modal-tech-tag">HTML5 / CSS3</span><span class="modal-tech-tag">Colorsys Math</span><span class="modal-tech-tag">SQLite</span>
+            </div>
+          </div>
+          <div class="bot-mockup-wrapper">
+            <div class="bot-mockup-label"><span></span>Carousel Bot</div>
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="phone-status-bar"><span class="status-time">09:41</span><div class="status-icons"><span>📶</span><span>5G</span><span>🔋</span></div></div>
+                <div class="tg-header">
+                  <button class="tg-back" type="button">←</button>
+                  <div class="tg-chat-info">
+                    <div class="tg-avatar" style="background: var(--grad-cyan-emerald)">🎨</div>
+                    <div><div class="tg-name">Carousel Creator</div><div class="tg-status">бот (в мережі)</div></div>
+                  </div>
+                </div>
+                <div class="tg-messages" id="tg-messages-carousel">
+                  <div class="tg-message bot">Привіт! Я бот-генератор HTML каруселей для Instagram. Оберіть дію на клавіатурі:</div>
+                </div>
+                <div class="tg-input-bar">
+                  <span style="font-size:0.75rem; opacity:0.6;">📎</span>
+                  <input class="tg-input-field" id="tg-input-carousel" data-bot="carousel" placeholder="Напишіть повідомлення..." style="flex:1;color:#e2e8f0;background:#18191e;padding:0.3rem 0.6rem;border-radius:14px;font-size:0.7rem;outline:none;border:1px solid rgba(255,255,255,0.04);font-family:var(--font-sans);">
+                  <button class="tg-send-btn" data-bot="carousel" aria-label="Надіслати" style="background:none;border:none;color:var(--cyan);cursor:pointer;font-size:0.85rem;padding:0 4px;">➔</button>
+                  <button class="tg-clear-btn" data-bot="carousel" aria-label="Очистити чат" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.7rem;padding:0 4px;">🗑️</button>
+                </div>
+                <div class="tg-keyboard-container">
+                  <div class="tg-keyboard-row">
+                    <button class="tg-kbd-btn" data-bot="carousel" data-text="🎨 HTML Карусель">🎨 HTML Карусель</button>
+                    <button class="tg-kbd-btn" data-bot="carousel" data-text="🤖 AI Копірайтер">🤖 AI Копірайтер</button>
+                  </div>
+                  <div class="tg-keyboard-row">
+                    <button class="tg-kbd-btn" data-bot="carousel" data-text="💡 Генератор ідей">💡 Генератор ідей</button>
+                    <button class="tg-kbd-btn" data-bot="carousel" data-text="🖼 Мої набори">🖼 Мої набори</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. InstaLeadScout Modal -->
+  <div class="modal-overlay" id="modal-instalead">
+    <div class="modal-body" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" aria-label="Закрити">×</button>
+      <div class="modal-content-scroller">
+        <div class="modal-grid">
+          <div>
+            <div class="modal-title-wrapper"><span class="modal-category">Аналіз профілів</span><h2 class="modal-title">InstaLeadScout v2</h2></div>
+            <div class="modal-desc">Автономний скрейпер Instagram-акаунтів. Здійснює пошук профілів через Google Search, щоб запобігти лімітам Instagram, перевіряє кількість підписників, переходить по посиланнях у біо та кваліфікує ліди на основі наявності сайту та Telegram.</div>
+            <div class="modal-section-title">Основний функціонал</div>
+            <ul class="modal-features-list">
+              <li><b>Google Search Crawler:</b> Пошук бізнес профілів без прямого використання акаунту Instagram.</li>
+              <li><b>Profile Analyzer:</b> Оцінка біо-опису, наявності сайту та Telegram у профілі.</li>
+              <li><b>Inactivity Check:</b> Фільтрація акаунтів, у яких останній пост зроблено більше 60 днів тому.</li>
+              <li><b>Session Import:</b> Можливість входу через логін/пароль або завантаження Cookies файлу.</li>
+              <li><b>CSV Lead Exporter:</b> Експорт накопиченої бази лідів у форматі Excel/CSV.</li>
+            </ul>
+            <div class="modal-section-title">Стек технологій</div>
+            <div class="modal-tech-tags">
+              <span class="modal-tech-tag">Python (Telebot)</span><span class="modal-tech-tag">Google Crawling</span><span class="modal-tech-tag">Playwright Scraper</span><span class="modal-tech-tag">SQLite</span><span class="modal-tech-tag">dotenv</span><span class="modal-tech-tag">Cookies Parsing</span>
+            </div>
+          </div>
+          <div class="bot-mockup-wrapper">
+            <div class="bot-mockup-label"><span></span>InstaLeadScout</div>
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="phone-status-bar"><span class="status-time">09:41</span><div class="status-icons"><span>📶</span><span>5G</span><span>🔋</span></div></div>
+                <div class="tg-header">
+                  <button class="tg-back" type="button">←</button>
+                  <div class="tg-chat-info">
+                    <div class="tg-avatar" style="background: var(--grad-purple-blue)">🕵️</div>
+                    <div><div class="tg-name">InstaLeadScout</div><div class="tg-status">бот (в мережі)</div></div>
+                  </div>
+                </div>
+                <div class="tg-messages" id="tg-messages-instalead">
+                  <div class="tg-message bot">Вітаю в InstaLeadScout! Оберіть необхідний розділ меню для роботи:</div>
+                </div>
+                <div class="tg-input-bar">
+                  <span style="font-size:0.75rem; opacity:0.6;">📎</span>
+                  <input class="tg-input-field" id="tg-input-instalead" data-bot="instalead" placeholder="Напишіть повідомлення..." style="flex:1;color:#e2e8f0;background:#18191e;padding:0.3rem 0.6rem;border-radius:14px;font-size:0.7rem;outline:none;border:1px solid rgba(255,255,255,0.04);font-family:var(--font-sans);">
+                  <button class="tg-send-btn" data-bot="instalead" aria-label="Надіслати" style="background:none;border:none;color:var(--cyan);cursor:pointer;font-size:0.85rem;padding:0 4px;">➔</button>
+                  <button class="tg-clear-btn" data-bot="instalead" aria-label="Очистити чат" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.7rem;padding:0 4px;">🗑️</button>
+                </div>
+                <div class="tg-keyboard-container">
+                  <div class="tg-keyboard-row">
+                    <button class="tg-kbd-btn" data-bot="instalead" data-text="🔍 Пошук нових лідів">🔍 Пошук лідів</button>
+                    <button class="tg-kbd-btn" data-bot="instalead" data-text="📂 Збережені ліди">📂 Збережені ліди</button>
+                  </div>
+                  <div class="tg-keyboard-row">
+                    <button class="tg-kbd-btn" data-bot="instalead" data-text="⚙️ Налаштування фільтрів">⚙️ Налаштування</button>
+                    <button class="tg-kbd-btn" data-bot="instalead" data-text="📊 Статистика бази">📊 Статистика</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. AI Video Factory Modal -->
+  <div class="modal-overlay" id="modal-video">
+    <div class="modal-body" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" aria-label="Закрити">×</button>
+      <div class="modal-content-scroller">
+        <div class="modal-grid">
+          <div>
+            <div class="modal-title-wrapper"><span class="modal-category">Відео Рендер</span><h2 class="modal-title">AI Video Factory</h2></div>
+            <div class="modal-desc">Автономна медіа-станція. Здійснює генерацію розмовних відео (Shorts/Reels). ШІ вигадує тему та пише сценарій, ElevenLabs синтезує голос диктора, бот шукає відповідні фони через Pixels/Freepik APIs та монтує готовий MP4 файл за допомогою MoviePy.</div>
+            <div class="modal-section-title">Основний функціонал</div>
+            <ul class="modal-features-list">
+              <li><b>Stoic Theme Gen:</b> Авто-генерація глибоких філософських/корисних тем сценарію.</li>
+              <li><b>ElevenLabs Voiceover:</b> Озвучення тексту кастомним синтезом мовлення диктора.</li>
+              <li><b>Pix/Free Stock Sync:</b> Пошук та завантаження відповідних фонових відео/фото за ключовими словами.</li>
+              <li><b>rembg segmenter:</b> Авто-видалення фону на зображеннях ораторів для створення плаваючих аватарів.</li>
+              <li><b>MoviePy Compiler:</b> Накладання тексту, обрізка аудіо, монтаж відео та рендер готового кліпу.</li>
+            </ul>
+            <div class="modal-section-title">Стек технологій</div>
+            <div class="modal-tech-tags">
+              <span class="modal-tech-tag">Python (AIogram)</span><span class="modal-tech-tag">ElevenLabs API</span><span class="modal-tech-tag">MoviePy Editor</span><span class="modal-tech-tag">Freepik API</span><span class="modal-tech-tag">rembg (u2net)</span><span class="modal-tech-tag">Celery Work</span>
+            </div>
+          </div>
+          <div class="bot-mockup-wrapper">
+            <div class="bot-mockup-label"><span></span>AI Video Factory</div>
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="phone-status-bar"><span class="status-time">09:41</span><div class="status-icons"><span>📶</span><span>5G</span><span>🔋</span></div></div>
+                <div class="tg-header">
+                  <button class="tg-back" type="button">←</button>
+                  <div class="tg-chat-info">
+                    <div class="tg-avatar" style="background: var(--grad-purple-pink)">🎬</div>
+                    <div><div class="tg-name">Video Factory</div><div class="tg-status">бот (в мережі)</div></div>
+                  </div>
+                </div>
+                <div class="tg-messages" id="tg-messages-video">
+                  <div class="tg-message bot">Вітаю в AI Video Factory! Оберіть команду для розробки відео контенту:</div>
+                </div>
+                <div class="tg-input-bar">
+                  <span style="font-size:0.75rem; opacity:0.6;">📎</span>
+                  <input class="tg-input-field" id="tg-input-video" data-bot="video" placeholder="Напишіть повідомлення..." style="flex:1;color:#e2e8f0;background:#18191e;padding:0.3rem 0.6rem;border-radius:14px;font-size:0.7rem;outline:none;border:1px solid rgba(255,255,255,0.04);font-family:var(--font-sans);">
+                  <button class="tg-send-btn" data-bot="video" aria-label="Надіслати" style="background:none;border:none;color:var(--cyan);cursor:pointer;font-size:0.85rem;padding:0 4px;">➔</button>
+                  <button class="tg-clear-btn" data-bot="video" aria-label="Очистити чат" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.7rem;padding:0 4px;">🗑️</button>
+                </div>
+                <div class="tg-keyboard-container">
+                  <div class="tg-keyboard-row">
+                    <button class="tg-kbd-btn" data-bot="video" data-text="🎬 Відео-генератор">🎬 Відео-генератор</button>
+                    <button class="tg-kbd-btn" data-bot="video" data-text="🎨 HTML-Каруселі">🎨 Каруселі</button>
+                  </div>
+                  <div class="tg-keyboard-row">
+                    <button class="tg-kbd-btn" data-bot="video" data-text="🖼️ Моя Галерея">🖼️ Моя Галерея</button>
+                    <button class="tg-kbd-btn" data-bot="video" data-text="👤 Мої Автори">👤 Мої Автори</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tech Stack Popup -->
+  <div class="tech-popup-overlay" id="tech-popup-overlay"></div>
+  <div class="tech-popup" id="tech-popup">
+    <button class="tech-popup-close" id="tech-popup-close" aria-label="Закрити">×</button>
+    <div class="tech-popup-title" id="tech-popup-title"></div>
+    <div class="tech-popup-desc" id="tech-popup-desc"></div>
+    <div class="tech-popup-tags" id="tech-popup-tags"></div>
+  </div>
+
+  <!-- Tech Category Modals -->
+  <div class="tech-category-modal-overlay" id="tech-category-overlay"></div>
+  
+  <!-- Modal for Programming Languages & AI -->
+  <div class="tech-category-modal" id="modal-languages" data-category="languages">
+    <button class="tech-category-modal-close" aria-label="Закрити">×</button>
+    <div class="tech-category-modal-content">
+      <div class="tech-category-modal-header">
+        <h2 id="modal-languages-title">Мови програмування & AI</h2>
+        <p id="modal-languages-desc">Основні інструменти для розробки ботів, парсерів та AI-інтеграцій</p>
+      </div>
+      <div class="tech-category-modal-grid" id="modal-languages-grid"></div>
+    </div>
+  </div>
+
+  <!-- Modal for Bots, APIs & Integrations -->
+  <div class="tech-category-modal" id="modal-bots" data-category="bots">
+    <button class="tech-category-modal-close" aria-label="Закрити">×</button>
+    <div class="tech-category-modal-content">
+      <div class="tech-category-modal-header">
+        <h2 id="modal-bots-title">Боти, API & Інтеграції</h2>
+        <p id="modal-bots-desc">Платформи для створення бот-асистентів та синхронізації систем</p>
+      </div>
+      <div class="tech-category-modal-grid" id="modal-bots-grid"></div>
+    </div>
+  </div>
+
+  <!-- Modal for Infrastructure, Databases & Media -->
+  <div class="tech-category-modal" id="modal-infra" data-category="infra">
+    <button class="tech-category-modal-close" aria-label="Закрити">×</button>
+    <div class="tech-category-modal-content">
+      <div class="tech-category-modal-header">
+        <h2 id="modal-infra-title">Інфраструктура, Бази & Медіа</h2>
+        <p id="modal-infra-desc">Сховища даних, контейнеризація та засоби для обробки медіаконтенту</p>
+      </div>
+      <div class="tech-category-modal-grid" id="modal-infra-grid"></div>
+    </div>
+  </div>
+
+  <script src="app.js?v=2.1"></script>
+</body>
+</html>
