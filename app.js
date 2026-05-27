@@ -134,32 +134,21 @@ document.addEventListener('DOMContentLoaded', () => {
   mobileMenuToggle.addEventListener('click', () => {
     const expanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
     mobileMenuToggle.setAttribute('aria-expanded', !expanded);
-    navMenu.style.display = expanded ? 'none' : 'flex';
-    if (!expanded) {
-      // Style overlay for mobile navigation dynamically
-      navMenu.style.flexDirection = 'column';
-      navMenu.style.position = 'absolute';
-      navMenu.style.top = '80px';
-      navMenu.style.left = '0';
-      navMenu.style.width = '100%';
-      navMenu.style.background = 'rgba(5, 6, 10, 0.95)';
-      navMenu.style.padding = '2rem';
-      navMenu.style.borderBottom = '1px solid var(--border-color)';
-    }
+    navMenu.classList.toggle('active');
   });
 
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       if (window.innerWidth <= 768) {
         mobileMenuToggle.setAttribute('aria-expanded', 'false');
-        navMenu.style.display = 'none';
+        navMenu.classList.remove('active');
       }
     });
   });
 
   window.addEventListener('resize', () => {
     if (window.innerWidth > 768) {
-      navMenu.removeAttribute('style');
+      navMenu.classList.remove('active');
       mobileMenuToggle.setAttribute('aria-expanded', 'false');
     }
   });

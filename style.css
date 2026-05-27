@@ -1961,11 +1961,52 @@ footer {
   section {
     padding: 3.5rem 0;
   }
+  header {
+    background: var(--bg-darker) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  header.scrolled {
+    background: var(--bg-darker) !important;
+    padding: 0 !important;
+  }
+  .nav-container {
+    height: 60px;
+  }
   .nav-links {
     display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: var(--bg-darker);
+    padding: 1.5rem 2rem 2.5rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+  .nav-links.active {
+    display: flex;
+    animation: slideDownMenu 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .nav-links a.nav-cta {
+    width: 100%;
+    text-align: center;
   }
   .menu-btn {
     display: block;
+    z-index: 101;
+  }
+  /* Animated Hamburger Menu */
+  .menu-btn[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .menu-btn[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-btn[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
   }
   .hero-content h1 {
     font-size: 3rem;
@@ -1983,5 +2024,16 @@ footer {
   }
   .modal-content-scroller {
     padding: 2rem;
+  }
+}
+
+@keyframes slideDownMenu {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
