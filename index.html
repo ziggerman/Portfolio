@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link rel="stylesheet" href="style.css?v=2.2">
+  <link rel="stylesheet" href="style.css?v=2.3">
 
   <!-- Inline Script to set color scheme and prevent FOUC -->
   <meta name="color-scheme" content="light dark">
@@ -571,7 +571,7 @@
                   <div class="tg-message bot">Привіт! Я твій кастомний Crypto Screener Bot. Оберіть дію на клавіатурі нижче, щоб перевірити роботу.</div>
                 </div>
                 <div class="tg-input-bar">
-                  <span style="font-size:0.75rem; opacity:0.6;">📎</span>
+                  <button class="tg-attach-btn" data-bot="crypto" aria-label="Додати файл" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.75rem;padding:0 4px;opacity:0.6;display:flex;align-items:center;">📎</button>
                   <input class="tg-input-field" id="tg-input-crypto" data-bot="crypto" placeholder="Напишіть повідомлення..." style="flex:1;color:#e2e8f0;background:#18191e;padding:0.3rem 0.6rem;border-radius:14px;font-size:0.7rem;outline:none;border:1px solid rgba(255,255,255,0.04);font-family:var(--font-sans);">
                   <button class="tg-send-btn" data-bot="crypto" aria-label="Надіслати" style="background:none;border:none;color:var(--cyan);cursor:pointer;font-size:0.85rem;padding:0 4px;">➔</button>
                   <button class="tg-clear-btn" data-bot="crypto" aria-label="Очистити чат" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.7rem;padding:0 4px;">🗑️</button>
@@ -657,7 +657,13 @@
                   <div class="tg-message bot">Привіт! Я ШІ-асистент Tetiana AI. Оберіть режим бази знань або натисніть "📚 Додати знання".</div>
                 </div>
                 <div class="tg-input-bar">
-                  <span style="font-size:0.75rem; opacity:0.6;">📎</span>
+                  <div class="tg-attach-wrapper" style="position: relative; display: flex; align-items: center;">
+                    <button class="tg-attach-btn" data-bot="tetiana" aria-label="Додати файл" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.75rem;padding:0 4px;opacity:0.6;display:flex;align-items:center;">📎</button>
+                    <div class="tg-attach-menu" id="tg-attach-menu-tetiana" style="display:none; position:absolute; bottom:30px; left:0; background:#1e1f24; border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:0.5rem; width:180px; box-shadow:0 10px 30px rgba(0,0,0,0.5); z-index:20;">
+                      <div class="tg-attach-option" data-file="ДНК компанії.pdf" style="padding:0.4rem 0.6rem; font-size:0.7rem; color:#e2e8f0; cursor:pointer; border-radius:6px; transition:background 0.2s;">📄 ДНК компанії.pdf</div>
+                      <div class="tg-attach-option" data-file="Регламент роботи.pdf" style="padding:0.4rem 0.6rem; font-size:0.7rem; color:#e2e8f0; cursor:pointer; border-radius:6px; transition:background 0.2s;">📄 Регламент роботи.pdf</div>
+                    </div>
+                  </div>
                   <input class="tg-input-field" id="tg-input-tetiana" data-bot="tetiana" placeholder="Напишіть повідомлення..." style="flex:1;color:#e2e8f0;background:#18191e;padding:0.3rem 0.6rem;border-radius:14px;font-size:0.7rem;outline:none;border:1px solid rgba(255,255,255,0.04);font-family:var(--font-sans);">
                   <button class="tg-send-btn" data-bot="tetiana" aria-label="Надіслати" style="background:none;border:none;color:var(--cyan);cursor:pointer;font-size:0.85rem;padding:0 4px;">➔</button>
                   <button class="tg-clear-btn" data-bot="tetiana" aria-label="Очистити чат" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.7rem;padding:0 4px;">🗑️</button>
@@ -719,7 +725,7 @@
                   <div class="tg-message bot">Вітаю у Threads Hunter! Я знаходжу B2B лідів в Threads. Оберіть дію:</div>
                 </div>
                 <div class="tg-input-bar">
-                  <span style="font-size:0.75rem; opacity:0.6;">📎</span>
+                  <button class="tg-attach-btn" data-bot="threads" aria-label="Додати файл" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.75rem;padding:0 4px;opacity:0.6;display:flex;align-items:center;">📎</button>
                   <input class="tg-input-field" id="tg-input-threads" data-bot="threads" placeholder="Напишіть повідомлення..." style="flex:1;color:#e2e8f0;background:#18191e;padding:0.3rem 0.6rem;border-radius:14px;font-size:0.7rem;outline:none;border:1px solid rgba(255,255,255,0.04);font-family:var(--font-sans);">
                   <button class="tg-send-btn" data-bot="threads" aria-label="Надіслати" style="background:none;border:none;color:var(--cyan);cursor:pointer;font-size:0.85rem;padding:0 4px;">➔</button>
                   <button class="tg-clear-btn" data-bot="threads" aria-label="Очистити чат" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.7rem;padding:0 4px;">🗑️</button>
@@ -781,7 +787,7 @@
                   <div class="tg-message bot">Привіт! Я бот-генератор HTML каруселей для Instagram. Оберіть дію на клавіатурі:</div>
                 </div>
                 <div class="tg-input-bar">
-                  <span style="font-size:0.75rem; opacity:0.6;">📎</span>
+                  <button class="tg-attach-btn" data-bot="carousel" aria-label="Додати файл" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.75rem;padding:0 4px;opacity:0.6;display:flex;align-items:center;">📎</button>
                   <input class="tg-input-field" id="tg-input-carousel" data-bot="carousel" placeholder="Напишіть повідомлення..." style="flex:1;color:#e2e8f0;background:#18191e;padding:0.3rem 0.6rem;border-radius:14px;font-size:0.7rem;outline:none;border:1px solid rgba(255,255,255,0.04);font-family:var(--font-sans);">
                   <button class="tg-send-btn" data-bot="carousel" aria-label="Надіслати" style="background:none;border:none;color:var(--cyan);cursor:pointer;font-size:0.85rem;padding:0 4px;">➔</button>
                   <button class="tg-clear-btn" data-bot="carousel" aria-label="Очистити чат" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.7rem;padding:0 4px;">🗑️</button>
@@ -843,7 +849,7 @@
                   <div class="tg-message bot">Вітаю в InstaLeadScout! Оберіть необхідний розділ меню для роботи:</div>
                 </div>
                 <div class="tg-input-bar">
-                  <span style="font-size:0.75rem; opacity:0.6;">📎</span>
+                  <button class="tg-attach-btn" data-bot="instalead" aria-label="Додати файл" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.75rem;padding:0 4px;opacity:0.6;display:flex;align-items:center;">📎</button>
                   <input class="tg-input-field" id="tg-input-instalead" data-bot="instalead" placeholder="Напишіть повідомлення..." style="flex:1;color:#e2e8f0;background:#18191e;padding:0.3rem 0.6rem;border-radius:14px;font-size:0.7rem;outline:none;border:1px solid rgba(255,255,255,0.04);font-family:var(--font-sans);">
                   <button class="tg-send-btn" data-bot="instalead" aria-label="Надіслати" style="background:none;border:none;color:var(--cyan);cursor:pointer;font-size:0.85rem;padding:0 4px;">➔</button>
                   <button class="tg-clear-btn" data-bot="instalead" aria-label="Очистити чат" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.7rem;padding:0 4px;">🗑️</button>
@@ -905,7 +911,7 @@
                   <div class="tg-message bot">Вітаю в AI Video Factory! Оберіть команду для розробки відео контенту:</div>
                 </div>
                 <div class="tg-input-bar">
-                  <span style="font-size:0.75rem; opacity:0.6;">📎</span>
+                  <button class="tg-attach-btn" data-bot="video" aria-label="Додати файл" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.75rem;padding:0 4px;opacity:0.6;display:flex;align-items:center;">📎</button>
                   <input class="tg-input-field" id="tg-input-video" data-bot="video" placeholder="Напишіть повідомлення..." style="flex:1;color:#e2e8f0;background:#18191e;padding:0.3rem 0.6rem;border-radius:14px;font-size:0.7rem;outline:none;border:1px solid rgba(255,255,255,0.04);font-family:var(--font-sans);">
                   <button class="tg-send-btn" data-bot="video" aria-label="Надіслати" style="background:none;border:none;color:var(--cyan);cursor:pointer;font-size:0.85rem;padding:0 4px;">➔</button>
                   <button class="tg-clear-btn" data-bot="video" aria-label="Очистити чат" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.7rem;padding:0 4px;">🗑️</button>
@@ -976,6 +982,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=2.2"></script>
+  <script src="app.js?v=2.3"></script>
 </body>
 </html>

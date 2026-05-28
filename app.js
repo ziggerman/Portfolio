@@ -570,6 +570,146 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Active document state for RAG bots
+  const activeDocument = {
+    tetiana: null
+  };
+
+  // Local Q&A Database for dynamic mock replies (NLP/AI imitation)
+  const simulatedDatabase = {
+    tetiana: {
+      general: [
+        { keywords: ["привіт", "вітаю", "добрий"], response: "Вітаю! Я ШІ-асистент Tetiana AI. Завантажте документ за допомогою скріпки 📎 або оберіть базу знань на клавіатурі для початку." },
+        { keywords: ["режим", "база", "бази"], response: "Поточний стан баз знань:<br>• 🟡 <code>NOM</code> — 1,240 фрагментів<br>• 🟣 <code>GALLUP</code> — 850 фрагментів<br>• 🔵 <code>DNA</code> — 420 фрагментів<br><br>Ви можете змінити режим на клавіатурі нижче." },
+        { keywords: ["інструкція", "як працює", "допомога"], response: "📖 <b>Tetiana AI - Інструкція:</b><br>1. Натисніть кнопку скріпки 📎 біля поля вводу.<br>2. Оберіть один із шаблонів (наприклад, <i>ДНК компанії.pdf</i>).<br>3. Дочекайтеся завершення завантаження та RAG-індексації.<br>4. Ставте запитання по темах документа безпосередньо у чат!" }
+      ],
+      documents: {
+        "ДНК компанії.pdf": [
+          { keywords: ["місія", "цінність", "цінності", "мета"], response: "🌟 <b>Місія компанії згідно ДНК:</b> Створення безшовних AI-рішень для автоматизації рутини.<br><br><b>Головні цінності:</b><br>1. Прозорість процесів.<br>2. Швидкість ітерацій.<br>3. Орієнтація на бізнес-ROI клієнта." },
+          { keywords: ["культура", "правила", "атмосфера", "офіс"], response: "🤝 <b>Внутрішня культура та правила:</b><br>• Гнучкий графік без трекінгу скріншотів.<br>• Робота за OKR (Objectives and Key Results).<br>• Прямий і відкритий фідбек без бюрократії.<br>• Щотижневі командні ретроспективи." },
+          { keywords: ["онбординг", "новий", "новачок", "перший день"], response: "🚀 <b>Процес онбордингу нових колег:</b><br>• <b>Перші 3 дні:</b> Ознайомлення з базою знань NOM та налаштування локального оточення.<br>• <b>Перший тиждень:</b> Знайомство з ментором, перші таски та перший невеликий комміт." }
+        ],
+        "Регламент роботи.pdf": [
+          { keywords: ["графік", "час", "робоч", "години"], response: "⏰ <b>Робочий графік:</b><br>• Фіксований кор-тайм з 11:00 до 16:00 за київським часом.<br>• Інші години гнучкі (головне виконувати завдання в тасках).<br>• Овертайми за погодженням з PM оплачуються за коефіцієнтом 1.5x." },
+          { keywords: ["відпустк", "лікарнян", "вихідн", "хвор"], response: "📅 <b>Відпустки та лікарняні:</b><br>• 20 робочих днів оплачуваної відпустки на рік.<br>• 10 днів sick leaves (лікарняних) без довідок.<br>• Заявки на відпустку подаються мінімум за 2 тижні через HR-портал або бот." },
+          { keywords: ["звіт", "slack", "комунікація", "jira", "clickup"], response: "💬 <b>Звіти та комунікація:</b><br>• Щодня до 10:00 пишемо стендап-звіт у канал Slack (що зробив вчора, плани на сьогодні, блокери).<br>• Усі завдання фіксуються в Jira/ClickUp, дедлайни оновлюються вчасно." }
+        ]
+      }
+    },
+    crypto: {
+      general: [
+        { keywords: ["btc", "bitcoin", "біткоїн"], response: "🟢 <b>BTCUSDT</b>: $67,420 (+2.4%). Сильний висхідний тренд на 1h таймфреймі. Найближчий опір: $68,500. ML Confidence: <b>89%</b>." },
+        { keywords: ["sol", "solana", "солана"], response: "🔥 <b>SOLUSDT</b>: $165 (+5.8%). Виявлено аномальний об'єм торгів (+240% за 5хв). Сигнал на покупку сформовано. Рекомендуємо відкрити WebApp." },
+        { keywords: ["eth", "ethereum", "ефір"], response: "🟢 <b>ETHUSDT</b>: $3,850 (+3.1%). RSI біля 62, ціна впевнено тримається вище 200 EMA." },
+        { keywords: ["привіт", "вітаю", "добрий"], response: "Привіт! Я твій Crypto Alerts Screener Bot. Надішліть назву монети (наприклад, BTC, ETH, SOL), щоб отримати швидкий аналіз." }
+      ]
+    },
+    threads: {
+      general: [
+        { keywords: ["привіт", "вітаю", "добрий"], response: "Привіт! Я Threads Hunter Bot. Напишіть ключові слова для пошуку лідів або натисніть '🔍 Пошук лідів'." },
+        { keywords: ["пошук", "лід", "клієнт"], response: "📡 Запущено пошук лідів Meta Threads!<br>Шукаємо фрази: <i>Шукаю розробника, Потрібен дизайн</i>... Знайдено 2 контакти. Надіслано сповіщення." }
+      ]
+    },
+    carousel: {
+      general: [
+        { keywords: ["привіт", "вітаю", "добрий"], response: "Вітаю! Я Carousel Post Generator Bot. Напишіть тему або клікніть '🚀 Створити карусель' на клавіатурі." }
+      ]
+    },
+    instalead: {
+      general: [
+        { keywords: ["привіт", "вітаю", "добрий"], response: "Привіт! Я InstaLeadScout Finder. Напишіть сферу та місто (наприклад, <i>салони київ</i>) для пошуку лідів." }
+      ]
+    },
+    video: {
+      general: [
+        { keywords: ["привіт", "вітаю", "добрий"], response: "Привіт! Я AI Video Factory Compiler. Напишіть тему сценарію для створення Shorts відео." }
+      ]
+    }
+  };
+
+  // Click handlers for Paperclip (📎) attachment buttons
+  document.addEventListener('click', (e) => {
+    const attachBtn = e.target.closest('.tg-attach-btn');
+    if (attachBtn) {
+      e.stopPropagation();
+      const botId = attachBtn.dataset.bot;
+      const menu = document.getElementById(`tg-attach-menu-${botId}`);
+      if (menu) {
+        const isCurrentlyOpen = menu.style.display === 'block';
+        document.querySelectorAll('.tg-attach-menu').forEach(m => m.style.display = 'none');
+        menu.style.display = isCurrentlyOpen ? 'none' : 'block';
+      } else {
+        const messagesContainer = document.getElementById(`tg-messages-${botId}`);
+        if (messagesContainer) {
+          const warnBubble = document.createElement('div');
+          warnBubble.className = 'tg-message bot';
+          warnBubble.style.color = '#f43f5e';
+          warnBubble.style.background = 'rgba(244, 63, 94, 0.05)';
+          warnBubble.style.borderColor = 'rgba(244, 63, 94, 0.15)';
+          warnBubble.innerHTML = '⚠️ Цей бот підтримує лише текстові команди та кнопки.';
+          messagesContainer.appendChild(warnBubble);
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+      }
+    } else {
+      document.querySelectorAll('.tg-attach-menu').forEach(m => m.style.display = 'none');
+    }
+  });
+
+  // Event handler for selecting a document template to upload
+  document.addEventListener('click', (e) => {
+    const option = e.target.closest('.tg-attach-option');
+    if (option) {
+      const parentMenu = option.closest('.tg-attach-menu');
+      const botId = parentMenu.id.replace('tg-attach-menu-', '');
+      const fileName = option.dataset.file;
+      
+      parentMenu.style.display = 'none';
+      simulateFileUpload(botId, fileName);
+    }
+  });
+
+  // Simulated File Upload and indexing indicator for RAG assistant
+  function simulateFileUpload(botId, fileName) {
+    const messagesContainer = document.getElementById(`tg-messages-${botId}`);
+    if (!messagesContainer) return;
+
+    if (messagesContainer.querySelector('.tg-typing')) return;
+
+    const userBubble = document.createElement('div');
+    userBubble.className = 'tg-message user';
+    userBubble.innerHTML = `📎 <i>Надіслано файл: ${fileName}</i>`;
+    messagesContainer.appendChild(userBubble);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    const progressBubble = document.createElement('div');
+    progressBubble.className = 'tg-message bot';
+    progressBubble.innerHTML = `⏳ Завантаження <b>${fileName}</b>:<br><code style="font-family:var(--font-mono);font-size:0.6rem;margin-top:0.25rem;display:inline-block;">[░░░░░░░░░░] 0%</code>`;
+    messagesContainer.appendChild(progressBubble);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    let percent = 0;
+    const interval = setInterval(() => {
+      percent += 25;
+      if (percent <= 100) {
+        const blocks = '█'.repeat(percent / 10) + '░'.repeat(10 - percent / 10);
+        progressBubble.innerHTML = `⏳ Завантаження <b>${fileName}</b>:<br><code style="font-family:var(--font-mono);font-size:0.6rem;margin-top:0.25rem;display:inline-block;">[${blocks}] ${percent}%</code>`;
+      } else {
+        clearInterval(interval);
+        progressBubble.innerHTML = `⚙️ Створення векторних ембеддінгів та індексація RAG...`;
+        setTimeout(() => {
+          progressBubble.innerHTML = `📄 Файл <b>${fileName}</b> успішно проіндексовано у векторну базу Pinecone! RAG-пошук активовано.<br><br>Тепер ви можете запитати мене про:<br>` + 
+            (fileName.includes("ДНК") 
+              ? `• <b>Місію та цінності компанії</b><br>• <b>Правила внутрішньої культури</b><br>• <b>Процеси онбордингу новачків</b>` 
+              : `• <b>Робочий графік та кор-тайм</b><br>• <b>Оплату, лікарняні та відпустки</b><br>• <b>Звіти в Slack та роботу в Jira</b>`);
+          
+          activeDocument[botId] = fileName;
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }, 1200);
+      }
+    }, 250);
+  }
+
   // Handle Telegram Bot Simulations
   function handleBotInteraction(botId, textOrCallback, isCallback = false) {
     const messagesContainer = document.getElementById(`tg-messages-${botId}`);
@@ -606,17 +746,77 @@ document.addEventListener('DOMContentLoaded', () => {
       // Remove typing indicator
       typingBubble.remove();
 
-      // Retrieve reply data
+      const replyBubble = document.createElement('div');
+      replyBubble.className = 'tg-message bot';
+
+      // 1. Check if this is a custom action or predefined callback
       const botDb = botReplies[botId];
       const replyData = botDb ? botDb[dbKey] : null;
 
-      const replyBubble = document.createElement('div');
-      replyBubble.className = 'tg-message bot';
+      // 2. Custom Layout Generation for Carousel and Video creation
+      if (dbKey === 'c_run') {
+        replyBubble.innerHTML = `⏳ <b>Playwright запускає headless-браузер...</b><br>Ініціалізація HTML шаблону...`;
+        messagesContainer.appendChild(replyBubble);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        
+        setTimeout(() => {
+          replyBubble.innerHTML = `🎨 <b>Карусель згенеровано успішно!</b><br>Ось прев'ю першого слайда:<br><img src="carousel_preview.png" alt="Carousel Preview" style="width:100%; border-radius:12px; margin-top:0.5rem; border:1px solid rgba(255,255,255,0.08); box-shadow:0 8px 24px rgba(0,0,0,0.3);"><a href="carousel_preview.png" download class="tg-inline-btn" style="text-decoration:none; margin-top:0.5rem; display:block; text-align:center;">📥 Завантажити ZIP-архів</a>`;
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }, 1500);
+        return;
+      }
       
-      if (replyData) {
+      if (dbKey === 'v_idea' || dbKey === 'v_new') {
+        replyBubble.innerHTML = `🤖 <b>ШІ пише сценарій... [ОК]</b><br>🗣️ Синтез голосу ElevenLabs...`;
+        messagesContainer.appendChild(replyBubble);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        
+        setTimeout(() => {
+          replyBubble.innerHTML = `🎬 <b>Рендеринг відео MoviePy...</b><br><code style="font-family:var(--font-mono);font-size:0.6rem;">[████████░░] 80% (30 FPS)</code>`;
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+          
+          setTimeout(() => {
+            replyBubble.innerHTML = `🎬 <b>Shorts-відео успішно згенеровано!</b><br>Перегляньте прев'ю плеєра:<br><video src="https://assets.mixkit.co/videos/preview/mixkit-tunnel-of-futuristic-blue-lights-42526-large.mp4" controls loop autoplay muted playsinline style="width:100%; max-height:220px; border-radius:12px; margin-top:0.5rem; object-fit:cover; border:1px solid rgba(255,255,255,0.08); box-shadow:0 8px 24px rgba(0,0,0,0.3);"></video>`;
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+          }, 1200);
+        }, 1000);
+        return;
+      }
+
+      // 3. Normal Search in Simulated NLP Database
+      let simulatedReply = null;
+      const nlpDb = simulatedDatabase[botId];
+      if (nlpDb) {
+        const cleanedText = dbKey.toLowerCase().trim();
+        
+        // Match Tetiana uploaded documents questions
+        if (botId === 'tetiana' && activeDocument['tetiana']) {
+          const docName = activeDocument['tetiana'];
+          const docRules = nlpDb.documents[docName];
+          if (docRules) {
+            const match = docRules.find(rule => 
+              rule.keywords.some(kw => cleanedText.includes(kw))
+            );
+            if (match) simulatedReply = match.response;
+          }
+        }
+        
+        // Match general keywords
+        if (!simulatedReply && nlpDb.general) {
+          const match = nlpDb.general.find(rule => 
+            rule.keywords.some(kw => cleanedText.includes(kw))
+          );
+          if (match) simulatedReply = match.response;
+        }
+      }
+
+      // 4. Render output
+      if (simulatedReply) {
+        replyBubble.innerHTML = simulatedReply;
+      } else if (replyData) {
         replyBubble.innerHTML = replyData.text;
         
-        // Render Inline buttons if exists
+        // Render Predefined Inline buttons
         if (replyData.inline) {
           const inlineContainer = document.createElement('div');
           inlineContainer.className = 'tg-inline-kbd';
@@ -634,7 +834,21 @@ document.addEventListener('DOMContentLoaded', () => {
           replyBubble.appendChild(inlineContainer);
         }
       } else {
-        replyBubble.textContent = `Команда прийнята на опрацювання.`;
+        // Smart fallbacks if nothing matched
+        if (botId === 'tetiana') {
+          if (activeDocument['tetiana']) {
+            replyBubble.innerHTML = `❌ Відповідь на запит "<i>${dbKey}</i>" не знайдена в документі <b>${activeDocument['tetiana']}</b>.<br><br>Спробуйте запитати про: ` +
+              (activeDocument['tetiana'].includes("ДНК") 
+                ? `<b>місію, цінності, культуру, правила, онбординг</b>.` 
+                : `<b>робочий графік, години, відпустку, лікарняний, звіти, Slack</b>.`);
+          } else {
+            replyBubble.innerHTML = `❓ Запит "<i>${dbKey}</i>" не розпізнано.<br><br>Я працюю за базами знань. Будь ласка, завантажте документ через скріпку 📎 (наприклад, <b>ДНК компанії.pdf</b> або <b>Регламент роботи.pdf</b>) або скористайтеся клавіатурою нижче.`;
+          }
+        } else if (botId === 'crypto') {
+          replyBubble.innerHTML = `❌ Монета "<i>${dbKey}</i>" не знайдена в системі скрінера.<br><br>Спробуйте ввести: <b>BTC</b>, <b>ETH</b> або <b>SOL</b> для миттєвого аналізу.`;
+        } else {
+          replyBubble.innerHTML = `⚙️ Отримано команду "<i>${dbKey}</i>". Запит опрацьовується в фоновому режимі...`;
+        }
       }
 
       messagesContainer.appendChild(replyBubble);
